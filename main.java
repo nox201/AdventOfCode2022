@@ -1,5 +1,6 @@
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import org.jsoup.Connection;
 import org.jsoup.Connection.Response;
@@ -15,7 +16,7 @@ public class main {
 		//CREATE CONNECTION
 		Connection connection = Jsoup.connect("https://adventofcode.com/2022/day/1/input");
 		//SET COOKIE - SESSION ID REMOVED FOR SECURITY
-		connection.cookie("session", "x");
+		connection.cookie("session", "53616c7465645f5ffe2d7198668a181019f89bf432f0aeac9a19bcc5421027573e551d054b32f17a64741ec8b1186efb62f73ce10510e7828e3abecf9b05c0a1");
 		
 		//SCRAPE WEBPAGE - GET LIST OF CALORIES
 		Response calories = connection.execute();
@@ -81,6 +82,19 @@ public class main {
 		
 		//PRINT FINAL HIGHEST CALORIES
 		System.out.println("The highest number of calories held by a single elf is " + highestCalories);
+		
+		//-- PART TWO
+		
+		//SORT ELF TOTALS, DESC
+		Collections.sort(elfTotals, Collections.reverseOrder());
+		//SUM TOP THREE ELF TOTALS
+		int total = 0;
+		for(int i = 0; i <=2; i++) {
+			total += elfTotals.get(i);
+		}
+		
+		//PRINT SUM OF TOP THREE HIGHEST CALORIE HOLDING ELVES
+		System.out.println("The highest number of calories held by the top 3 elves is " + total);
 
 	}
 
