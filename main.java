@@ -16,7 +16,7 @@ public class main {
 		//CREATE CONNECTION
 		Connection connection = Jsoup.connect("https://adventofcode.com/2022/day/1/input");
 		//SET COOKIE - SESSION ID REMOVED FOR SECURITY
-		connection.cookie("session", "53616c7465645f5ffe2d7198668a181019f89bf432f0aeac9a19bcc5421027573e551d054b32f17a64741ec8b1186efb62f73ce10510e7828e3abecf9b05c0a1");
+		connection.cookie("session", "x");
 		
 		//SCRAPE WEBPAGE - GET LIST OF CALORIES
 		Response calories = connection.execute();
